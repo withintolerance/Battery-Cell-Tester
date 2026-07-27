@@ -1,0 +1,10 @@
+#pragma once
+
+// Optional compile-time defaults. Copy to wifi_defaults_private.h (gitignored)
+// if you want boards to come up with Wi-Fi/hub settings before serial config.
+// Values saved via serial (`wifi set` / `wifi hub`) always take precedence.
+//
+// Leave this file unused and configure over USB serial instead — see README.
+#define DEFAULT_WIFI_SSID "your-wifi-ssid"
+#define DEFAULT_WIFI_PASSWORD "your-wifi-password"
+#define DEFAULT_HUB_URL "http://192.168.1.10:3001"

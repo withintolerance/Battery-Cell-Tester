@@ -1,0 +1,9 @@
+{
+  "boards": [],
+  "passThresholdMah": 2200,
+  "nextCellId": 1,
+  "freeCellIds": [],
+  "restoreWindowSeconds": 30,
+  "bootLoopWindowSeconds": 120,
+  "bootLoopThreshold": 3
+}

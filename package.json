@@ -1,0 +1,13 @@
+{
+  "name": "go-kart-battery-tester",
+  "private": true,
+  "description": "Multi-bay battery cell tester — ESP32 firmware, hub API, and web dashboard",
+  "scripts": {
+    "hub": "npm --prefix hub start",
+    "hub:dev": "npm --prefix hub run dev",
+    "ui": "npm --prefix ui start",
+    "ui:dev": "npm --prefix ui run dev",
+    "ui:build": "npm --prefix ui run build",
+    "install:all": "npm --prefix hub install && npm --prefix ui install"
+  }
+}

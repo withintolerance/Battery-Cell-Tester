@@ -1,0 +1,2 @@
+# Arduino loop() task stack — default 8192 overflows during WiFi + WebServer + I2C.
+CONFIG_ARDUINO_LOOP_STACK_SIZE=16384
