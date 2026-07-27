@@ -1,14 +1,23 @@
 # Go-Kart Battery Cell Tester
 
-Open-source firmware, hub API, and web dashboard for a multi-bay lithium cell charge/discharge tester built around ESP32-S2 boards.
+Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, hub API, web dashboard, and PCB / hardware designs.
 
-This repo has **three parts** that stay as separate processes (they talk over HTTP/WebSocket):
+> **Disclaimer — use at your own risk**
+>
+> This project works with **lithium cells**, which can catch fire, explode, or cause serious injury or property damage if mishandled, shorted, overcharged, over-discharged, or used with a faulty build.
+>
+> The designs, firmware, and software are provided **as-is, with no warranty**. By using this project you accept full responsibility for your build, testing, and operation. **The author(s) take no responsibility** for any damage, injury, loss, or other consequences that may result from using or modifying this project.
+>
+> If you are not comfortable working with lithium batteries and power electronics, do not build or use this.
+
+This repo has several parts:
 
 | Part | Path | Role |
 |------|------|------|
 | **Firmware** | `src/`, `include/`, `platformio.ini` | Runs on each ESP32-S2 tester board |
 | **Hub** | `hub/` | API, SQLite history, board polling, alerts |
 | **UI** | `ui/` | Next.js dashboard (port 3000 → hub on 3001) |
+| **Hardware** | `hardware/` | EasyEDA schematics, PCB, Gerbers, BOM |
 
 Optional: `YR1035_reader/` streams IR/voltage readings from a YR1035 meter into the hub.
 
@@ -188,12 +197,19 @@ http://HOST:3001/api/runs
 
 ---
 
+## Hardware (EasyEDA)
+
+PCB and schematic files live in [`hardware/`](hardware/). See that folder’s README for the expected layout and how to export from EasyEDA.
+
+---
+
 ## Project layout
 
 ```text
 ├── src/ / include/     ESP32-S2 firmware (PlatformIO)
 ├── hub/                Express + SQLite API (port 3001)
 ├── ui/                 Next.js dashboard (port 3000)
+├── hardware/           EasyEDA schematics, PCB, Gerbers, BOM, heatsink 3D model
 ├── YR1035_reader/      Optional meter → hub bridge
 └── platformio.ini
 ```
@@ -204,4 +220,4 @@ Hub and UI are intentionally separate packages: the hub is a long-running Node s
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). This license does **not** reduce the risks described in the disclaimer above; use of the project remains at your own risk.
