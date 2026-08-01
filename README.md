@@ -2,6 +2,8 @@
 
 Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, hub API, web dashboard, and PCB / hardware designs.
 
+**Watch the build / overview video:** https://youtu.be/NCjXZjViC6E
+
 > **Disclaimer — use at your own risk**
 >
 > This project works with **lithium cells**, which can catch fire, explode, or cause serious injury or property damage if mishandled, shorted, overcharged, over-discharged, or used with a faulty build.
