@@ -1,6 +1,9 @@
 # Hardware (EasyEDA + mechanical)
 
-Schematics, PCB layouts, fabrication outputs, BOMs, and the heatsink 3D model for the battery cell tester.
+**Schematic & PCB (share this link):**  
+https://oshwlab.com/team_zpyafgse/project_tiylojme
+
+Open that OSHWLab / EasyEDA project for the live schematic and PCB. This folder holds revision notes, TODOs, and mechanical files (e.g. heatsink).
 
 > Lithium cells and power electronics are dangerous. See the disclaimer in the root [README](../README.md). Build and use at your own risk.
 

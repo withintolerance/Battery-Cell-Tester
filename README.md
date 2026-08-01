@@ -10,6 +10,13 @@ Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, h
 >
 > If you are not comfortable working with lithium batteries and power electronics, do not build or use this.
 
+## Hardware (PCB)
+
+**Schematic & PCB (EasyEDA / OSHWLab):**  
+https://oshwlab.com/team_zpyafgse/project_tiylojme
+
+That is the hardware link to share for now. Extra notes, revision history, and mechanical files are in [`hardware/`](hardware/).
+
 This repo has several parts:
 
 | Part | Path | Role |
@@ -17,7 +24,7 @@ This repo has several parts:
 | **Firmware** | `src/`, `include/`, `platformio.ini` | Runs on each ESP32-S2 tester board |
 | **Hub** | `hub/` | API, SQLite history, board polling, alerts |
 | **UI** | `ui/` | Next.js dashboard (port 3000 → hub on 3001) |
-| **Hardware** | `hardware/` | EasyEDA schematics, PCB, Gerbers, BOM |
+| **Hardware** | [OSHWLab project](https://oshwlab.com/team_zpyafgse/project_tiylojme) · [`hardware/`](hardware/) | Schematic, PCB, notes, heatsink |
 
 Optional: `YR1035_reader/` streams IR/voltage readings from a YR1035 meter into the hub.
 
@@ -199,7 +206,9 @@ http://HOST:3001/api/runs
 
 ## Hardware (EasyEDA)
 
-PCB and schematic files live in [`hardware/`](hardware/). See that folder’s README for the expected layout and how to export from EasyEDA.
+**Live schematic & PCB:** https://oshwlab.com/team_zpyafgse/project_tiylojme
+
+Notes, revision history, and mechanical files: [`hardware/`](hardware/).
 
 ---
 
