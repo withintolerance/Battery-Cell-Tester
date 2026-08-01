@@ -1,5 +1,5 @@
-# Heatsink and other mechanical parts
+# Mechanical
 
-Place Fusion 360 exports here (`.f3d` and preferably `.step`).
+CAD files for the custom heatsink (and related parts) will be published here when available.
 
-See [../README.md](../README.md) for export steps.
+Until then, the PCB and schematic live on OSHWLab — see [../README.md](../README.md).

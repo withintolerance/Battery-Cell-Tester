@@ -1,6 +1,6 @@
 # Go-Kart Battery Cell Tester
 
-Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, hub API, web dashboard, and PCB / hardware designs.
+Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, hub API, web dashboard, and PCB design.
 
 **Watch the build / overview video:** https://youtu.be/NCjXZjViC6E
 
@@ -14,19 +14,20 @@ Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, h
 
 ## Hardware (PCB)
 
-**Schematic & PCB (EasyEDA / OSHWLab):**  
-https://oshwlab.com/team_zpyafgse/project_tiylojme
+Schematic and PCB are published on OSHWLab / EasyEDA:
 
-That is the hardware link to share for now. Extra notes, revision history, and mechanical files are in [`hardware/`](hardware/).
+**https://oshwlab.com/team_zpyafgse/project_tiylojme**
 
-This repo has several parts:
+Open that link to view the design, order boards, or fork the project. Design notes and differences from the video revision are in [`hardware/`](hardware/).
+
+## What’s in this repo
 
 | Part | Path | Role |
 |------|------|------|
 | **Firmware** | `src/`, `include/`, `platformio.ini` | Runs on each ESP32-S2 tester board |
 | **Hub** | `hub/` | API, SQLite history, board polling, alerts |
 | **UI** | `ui/` | Next.js dashboard (port 3000 → hub on 3001) |
-| **Hardware** | [OSHWLab project](https://oshwlab.com/team_zpyafgse/project_tiylojme) · [`hardware/`](hardware/) | Schematic, PCB, notes, heatsink |
+| **Hardware notes** | [`hardware/`](hardware/) | PCB revision notes (design lives on OSHWLab) |
 
 Optional: `YR1035_reader/` streams IR/voltage readings from a YR1035 meter into the hub.
 
@@ -55,7 +56,7 @@ npm start
 
 Hub listens on **http://localhost:3001** (override with `PORT`).
 
-Board IPs start empty. Add them later in the UI **Settings** panel (left → right order matches the physical bays).
+Board IPs start empty. Add them in the UI **Settings** panel (left → right order matches the physical bays).
 
 ### 2. UI
 
@@ -70,7 +71,7 @@ npm run dev          # development
 
 Open **http://localhost:3000**.
 
-By default the UI talks to `http://localhost:3001`. If the hub is on another machine, copy `ui/.env.local.example` → `ui/.env.local` and set:
+By default the UI talks to `http://localhost:3001`. If the hub runs on another machine, copy `ui/.env.local.example` → `ui/.env.local` and set:
 
 ```bash
 NEXT_PUBLIC_HUB_URL=http://YOUR_HUB_IP:3001
@@ -97,17 +98,17 @@ wifi hub http://YOUR_HUB_IP:3001
 wifi status
 ```
 
-When connected, the board prints its IP. Add that IP in the UI **Settings → Boards** list.
+When connected, the board prints its IP. Add that IP under **Settings → Boards** in the UI.
 
 #### Optional compile-time Wi-Fi defaults
 
-If you prefer not to type credentials on every fresh board, copy:
+To bake defaults into a fresh flash, copy the example and edit locally:
 
 ```bash
 cp include/wifi_defaults_private.h.example include/wifi_defaults_private.h
 ```
 
-Edit SSID, password, and hub URL, then rebuild. That file is **gitignored** — never commit real credentials. Serial `wifi set` / `wifi hub` values stored in flash always win over these defaults.
+Set SSID, password, and hub URL, then rebuild. Keep credentials in that private header on your machine only (it is gitignored). Values saved later with `wifi set` / `wifi hub` override these defaults.
 
 ---
 
@@ -176,8 +177,6 @@ Range alerts (edge-triggered, with hysteresis on temperatures):
 
 ## Deploying hub + UI on a server
 
-On the server:
-
 ```bash
 # Hub
 cd hub && npm install && npm start
@@ -186,15 +185,13 @@ cd hub && npm install && npm start
 cd ui && npm install && npm run build && npm start
 ```
 
-Use systemd, PM2, or similar to keep both running. Preserve across updates:
+Keep both processes running with systemd, PM2, or similar. Across updates, preserve:
 
 - `hub/data.db` (+ WAL/SHM) — history and board IP list
 - `hub/config.json` — runtime settings
 - `hub/.env` — secrets / webhooks
 
-Do **not** overwrite those files when syncing code.
-
-Useful URLs (replace host as needed):
+Useful URLs:
 
 ```text
 http://HOST:3000          # dashboard
@@ -206,26 +203,18 @@ http://HOST:3001/api/runs
 
 ---
 
-## Hardware (EasyEDA)
-
-**Live schematic & PCB:** https://oshwlab.com/team_zpyafgse/project_tiylojme
-
-Notes, revision history, and mechanical files: [`hardware/`](hardware/).
-
----
-
 ## Project layout
 
 ```text
 ├── src/ / include/     ESP32-S2 firmware (PlatformIO)
 ├── hub/                Express + SQLite API (port 3001)
 ├── ui/                 Next.js dashboard (port 3000)
-├── hardware/           EasyEDA schematics, PCB, Gerbers, BOM, heatsink 3D model
+├── hardware/           PCB revision notes (design on OSHWLab)
 ├── YR1035_reader/      Optional meter → hub bridge
 └── platformio.ini
 ```
 
-Hub and UI are intentionally separate packages: the hub is a long-running Node service with SQLite and WebSockets; the UI is a standard Next.js app. Keeping them split makes local development and production process management simpler than a single merged server.
+Hub and UI are separate packages on purpose: the hub is a long-running Node service with SQLite and WebSockets; the UI is a standard Next.js app.
 
 ---
 
