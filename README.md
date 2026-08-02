@@ -18,7 +18,7 @@ Full details: [`hardware/README.md`](hardware/README.md)
 
 | File | Use it for |
 |------|------------|
-| [`hardware/gerber/capacity-tester-v1-gerber.zip`](hardware/gerber/capacity-tester-v1-gerber.zip) | **Ordering PCBs** — upload this Gerber zip to JLCPCB / PCBWay / etc. (**6-layer**) |
+| [`hardware/gerber/capacity-tester-v1-gerber.zip`](hardware/gerber/capacity-tester-v1-gerber.zip) | **Ordering PCBs** — upload this Gerber zip to your preferred PCB house (**6-layer**) |
 | [`hardware/easyeda/capacity-tester-v1-easyeda-source.zip`](hardware/easyeda/capacity-tester-v1-easyeda-source.zip) | **Editing the design** — open the JSON files in EasyEDA (**File → Open → EasyEDA…**) |
 
 **Quick order path:** download the Gerber zip → upload to your fab → set **6 layers**. Optionally preview the zip in a Gerber viewer first.

@@ -22,9 +22,9 @@ OSHWLab sometimes leaves new projects in a review / pending state. While that ha
 ## How to order a PCB (Gerber zip)
 
 1. Download [`gerber/capacity-tester-v1-gerber.zip`](gerber/capacity-tester-v1-gerber.zip).
-2. Upload that zip to a fabricator that accepts Gerbers (JLCPCB, PCBWay, etc.).
+2. Upload that zip to your preferred PCB house (any fab that accepts Gerber packages).
 3. Confirm the order settings match the design — this board is **6-layer**.
-4. Optionally preview the Gerbers first in a free viewer such as [gerber-viewer.com](https://www.gerber-viewer.com/) or your fab’s online Gerber viewer before paying.
+4. Optionally preview the Gerbers in any Gerber viewer before ordering.
 
 Do **not** upload the EasyEDA source zip to the fabricator; they need the Gerber package.
 
