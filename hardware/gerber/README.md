@@ -1,5 +1,9 @@
 # Gerbers
 
-Place the Gerber + drill manufacturing zip here (e.g. `tester-v1.zip`).
+Manufacturing package for the current board:
 
-See [../README.md](../README.md) for design notes.
+**[`capacity-tester-v1-gerber.zip`](capacity-tester-v1-gerber.zip)**
+
+Upload this zip to JLCPCB / PCBWay / similar. This is a **6-layer** board.
+
+See [../README.md](../README.md) for full ordering and EasyEDA instructions.

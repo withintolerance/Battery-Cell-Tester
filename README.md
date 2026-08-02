@@ -14,11 +14,22 @@ Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, h
 
 ## Hardware (PCB)
 
-Board files and design notes: [`hardware/`](hardware/)
+Full details: [`hardware/README.md`](hardware/README.md)
 
-- **Gerbers / BOM / schematic exports** → folders under [`hardware/`](hardware/) (use these to order PCBs)
-- Design notes and video vs current-board differences → [`hardware/README.md`](hardware/README.md)
-- Optional EasyEDA mirror (sometimes stuck in OSHWLab review): https://oshwlab.com/team_zpyafgse/project_tiylojme
+| File | Use it for |
+|------|------------|
+| [`hardware/gerber/capacity-tester-v1-gerber.zip`](hardware/gerber/capacity-tester-v1-gerber.zip) | **Ordering PCBs** — upload this Gerber zip to JLCPCB / PCBWay / etc. (**6-layer**) |
+| [`hardware/easyeda/capacity-tester-v1-easyeda-source.zip`](hardware/easyeda/capacity-tester-v1-easyeda-source.zip) | **Editing the design** — open the JSON files in EasyEDA (**File → Open → EasyEDA…**) |
+
+**Quick order path:** download the Gerber zip → upload to your fab → set **6 layers**. Optionally preview the zip in a Gerber viewer first.
+
+**Quick edit path:** unzip the EasyEDA source → EasyEDA → **File → Open → EasyEDA…** → open schematic JSON, then PCB JSON → save into a project.
+
+### OSHWLab (may be pending / 404)
+
+https://oshwlab.com/team_zpyafgse/project_tiylojme
+
+OSHWLab can leave projects in review. While pending, the public page often **404s**. Use the zip files above instead; check OSHWLab again later if you prefer their online viewer.
 
 ## What’s in this repo
 
@@ -27,7 +38,7 @@ Board files and design notes: [`hardware/`](hardware/)
 | **Firmware** | `src/`, `include/`, `platformio.ini` | Runs on each ESP32-S2 tester board |
 | **Hub** | `hub/` | API, SQLite history, board polling, alerts |
 | **UI** | `ui/` | Next.js dashboard (port 3000 → hub on 3001) |
-| **Hardware** | [`hardware/`](hardware/) | Gerbers, BOM, schematic exports, PCB notes |
+| **Hardware** | [`hardware/`](hardware/) | Gerbers, EasyEDA source, PCB notes |
 
 Optional: `YR1035_reader/` streams IR/voltage readings from a YR1035 meter into the hub.
 
@@ -209,7 +220,7 @@ http://HOST:3001/api/runs
 ├── src/ / include/     ESP32-S2 firmware (PlatformIO)
 ├── hub/                Express + SQLite API (port 3001)
 ├── ui/                 Next.js dashboard (port 3000)
-├── hardware/           Gerbers, BOM, schematic exports, PCB notes
+├── hardware/           Gerbers, EasyEDA source, PCB notes
 ├── YR1035_reader/      Optional meter → hub bridge
 └── platformio.ini
 ```

@@ -1,5 +1,7 @@
 # Schematic
 
-Place schematic PDF and/or EasyEDA source exports here.
+Schematic lives inside the EasyEDA source package:
 
-See [../README.md](../README.md) for design notes.
+[`../easyeda/capacity-tester-v1-easyeda-source.zip`](../easyeda/capacity-tester-v1-easyeda-source.zip)
+
+See [../README.md](../README.md).
