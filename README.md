@@ -14,11 +14,11 @@ Open-source multi-bay lithium cell charge/discharge tester: ESP32-S2 firmware, h
 
 ## Hardware (PCB)
 
-Schematic and PCB are published on OSHWLab / EasyEDA:
+Board files and design notes: [`hardware/`](hardware/)
 
-**https://oshwlab.com/team_zpyafgse/project_tiylojme**
-
-Open that link to view the design, order boards, or fork the project. Design notes and differences from the video revision are in [`hardware/`](hardware/).
+- **Gerbers / BOM / schematic exports** → folders under [`hardware/`](hardware/) (use these to order PCBs)
+- Design notes and video vs current-board differences → [`hardware/README.md`](hardware/README.md)
+- Optional EasyEDA mirror (sometimes stuck in OSHWLab review): https://oshwlab.com/team_zpyafgse/project_tiylojme
 
 ## What’s in this repo
 
@@ -27,7 +27,7 @@ Open that link to view the design, order boards, or fork the project. Design not
 | **Firmware** | `src/`, `include/`, `platformio.ini` | Runs on each ESP32-S2 tester board |
 | **Hub** | `hub/` | API, SQLite history, board polling, alerts |
 | **UI** | `ui/` | Next.js dashboard (port 3000 → hub on 3001) |
-| **Hardware notes** | [`hardware/`](hardware/) | PCB revision notes (design lives on OSHWLab) |
+| **Hardware** | [`hardware/`](hardware/) | Gerbers, BOM, schematic exports, PCB notes |
 
 Optional: `YR1035_reader/` streams IR/voltage readings from a YR1035 meter into the hub.
 
@@ -209,7 +209,7 @@ http://HOST:3001/api/runs
 ├── src/ / include/     ESP32-S2 firmware (PlatformIO)
 ├── hub/                Express + SQLite API (port 3001)
 ├── ui/                 Next.js dashboard (port 3000)
-├── hardware/           PCB revision notes (design on OSHWLab)
+├── hardware/           Gerbers, BOM, schematic exports, PCB notes
 ├── YR1035_reader/      Optional meter → hub bridge
 └── platformio.ini
 ```

@@ -1,17 +1,28 @@
 # Hardware
 
-**Schematic and PCB (OSHWLab / EasyEDA):**  
+> Lithium cells and power electronics are dangerous. See the disclaimer in the root [README](../README.md). Build and use at your own risk.
+
+## Where to get the design
+
+**Primary (this repo):** fabrication files and exports live in the folders below once published.
+
+| Folder | Contents |
+|--------|----------|
+| [`gerber/`](gerber/) | Gerber + drill zip for ordering PCBs |
+| [`schematic/`](schematic/) | Schematic PDF (and EasyEDA source if available) |
+| [`bom/`](bom/) | Bill of materials |
+| [`mechanical/`](mechanical/) | Heatsink CAD (when available) |
+
+**OSHWLab / EasyEDA** (optional mirror — may be delayed by their review queue):  
 https://oshwlab.com/team_zpyafgse/project_tiylojme
 
-That project is the source of truth for the board. Use it to view the schematic, PCB, and order fabrication.
-
-> Lithium cells and power electronics are dangerous. See the disclaimer in the root [README](../README.md). Build and use at your own risk.
+If that page 404s or shows as pending, use the files in this repo instead.
 
 ---
 
 ## Differences from the YouTube video
 
-The published OSHWLab design includes these fixes relative to the board shown in the video:
+The current design includes these fixes relative to the board shown in the video:
 
 - **MOSFET drain/source orientation** — corrected on all three MOSFETs (they were inverted in the video revision).
 - **Reverse-protection FETs** — the back-to-back MOSFET reverse-protection arrangement was removed.
@@ -27,7 +38,3 @@ Not in the current board yet:
 - Additional status LED
 - User button
 - Buzzer
-
-## Mechanical
-
-A custom heatsink was designed for this project in Fusion 360. CAD files are not in the repo yet; when published, they will appear under [`mechanical/`](mechanical/).
